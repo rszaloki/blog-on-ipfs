@@ -1,0 +1,17 @@
+{
+  "name": "dweb",
+  "version": "1.0.0",
+  "main": "seed.html",
+  "author": "Robert Szaloki <r.szaloki@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "yarn parcel watch --no-hmr seed.html"
+  },
+  "dependencies": {
+    "ipfs": "^0.32.3",
+    "setimmediate": "^1.0.5"
+  },
+  "devDependencies": {
+    "parcel": "^1.10.3"
+  }
+}
