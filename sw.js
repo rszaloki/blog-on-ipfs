@@ -1,6 +1,5 @@
-const BASE = 'QmVE19w23MHNxK4bQupBtanK4jtNvZ7jyJpABYtwe7sWUu'
+const BASE = 'QmWiXWfcJ5nxh7HhXRhnkD2evcbQZ33DxbnC4J7dnDX74c'
 import { getFile, getNode } from './src/server'
-
 
 self.addEventListener('install', (event) => {
   console.log('sw installed')
@@ -14,14 +13,15 @@ self.addEventListener('activate', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  const url = new URL(event.request.url)
-  const PATH = url.pathname
-  const IPFS_PATH = `${BASE}${PATH}`
+  if (event.request.url.startsWith(self.location.origin)) {
 
-  console.log('fetch', IPFS_PATH)
+    const url = new URL(event.request.url)
+    const PATH = url.pathname
+    const IPFS_PATH = `${BASE}${PATH}`
 
-  event.respondWith(getFile(IPFS_PATH).then(resp =>{
-    const content = resp[0].content
-    return new Response(content)
-  }))
+    event.respondWith(getFile(IPFS_PATH).then(resp => {
+      const content = resp[0].content
+      return new Response(content)
+    }))
+  }
 })

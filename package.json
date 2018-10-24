@@ -12,6 +12,7 @@
     "setimmediate": "^1.0.5"
   },
   "devDependencies": {
+    "express": "^4.16.4",
     "parcel": "^1.10.3"
   }
 }

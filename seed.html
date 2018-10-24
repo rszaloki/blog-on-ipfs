@@ -19,6 +19,15 @@
 </head>
 <body>
     <h1>HELLO!</h1>
-    <script src="/src/seed.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js', {scope: '/'})
+    .then((reg) => {
+      console.log('Successful service worker register')
+      window.location.reload();
+    })
+    .catch((err) => console.error('Failed service worker register', err))
+}
+</script>
 </body>
 </html>
