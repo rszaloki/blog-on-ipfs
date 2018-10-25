@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
     <title>seed file</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:800" rel="stylesheet">
     <style>
@@ -23,8 +24,8 @@
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js', {scope: '/'})
     .then((reg) => {
-      console.log('Successful service worker register')
-      window.location.reload();
+      console.log('Successful service worker register', reg)
+      window.location.reload()
     })
     .catch((err) => console.error('Failed service worker register', err))
 }
