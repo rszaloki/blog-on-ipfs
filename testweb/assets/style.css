@@ -1,0 +1,19 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    max-width: 600px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 160px;
+    font-weight: 800;
+    text-align: center;
+}
+
+a {
+    display: block;
+    background: darkslategrey;
+    font-weight: 800;
+    padding: 0.5em;
+    color: ghostwhite;
+}

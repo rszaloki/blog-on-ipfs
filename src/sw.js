@@ -1,9 +1,8 @@
-import { getFile, getNode } from './src/server'
-
-const BASE = 'QmWA8nDWY9JAd2fneFavWN3Q8A8oYChMiUMhXrxM1tD2zV'
-getNode()
+import HASHES from 'ipfs-deploy!./ipfs-config.json'
 
 console.log('sw loaded')
+
+const ROOT = HASHES.root
 
 self.addEventListener('install', (event) => {
   console.log('sw installed')
@@ -20,13 +19,8 @@ self.addEventListener('fetch', (event) => {
 
     const url = new URL(event.request.url)
     const PATH = url.pathname
-    const IPFS_PATH = `${BASE}${PATH}`
+    console.log(event.request.url)
 
-    console.log(event.request.url, ' ==> ', IPFS_PATH)
-
-    event.respondWith(getFile(IPFS_PATH).then(resp => {
-      const content = resp[0].content
-      return new Response(content)
-    }))
+    event.respondWith(fetch(`https://ipfs.io/ipfs/${ROOT}${PATH}`))
   }
 })

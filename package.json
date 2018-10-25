@@ -5,15 +5,17 @@
   "author": "Robert Szaloki <r.szaloki@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "watch": "yarn parcel watch --no-hmr seed.html"
+    "start": "webpack-dev-server"
   },
   "dependencies": {
     "ipfs": "^0.32.3",
-    "morgan": "^1.9.1",
     "setimmediate": "^1.0.5"
   },
   "devDependencies": {
     "express": "^4.16.4",
-    "parcel": "^1.10.3"
+    "morgan": "^1.9.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
